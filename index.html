@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMSau</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="contact-con">
+        <form action="" class="contact-left" id="my-form">
+            <div class="contact-left-title">
+                <h2>پیامک هوشمند</h2>
+                <hr>
+            </div>
+            <input type="text" name="name" placeholder="نام و نام خانوادگی" class="contact-inputs" required>
+            <input type="text" name="number" placeholder="شماره تلفن" class="contact-inputs" required>
+            <textarea name="message" placeholder="پیامک شما" class="contact-inputs" required></textarea>
+            <button type="submit">ثبت پیام</button>
+
+        </form>
+        <script>
+          const scriptURL = 'https://script.google.com/macros/s/AKfycbw4_jB7PBp7abc5FfSb-WPgJabwCidLJIQGVzamae4zNoTvfduTpLvDaHETW_U5zZ_u-Q/exec'; 
+          const form = document.getElementById('my-form');
+
+          form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+              .then(response => alert('اطلاعات با موفقیت ثبت شد!'))
+              .catch(error => console.error('Error!', error.message))
+          });
+        </script>
+        <div class="contact-right">
+            <img src="" alt="">
+        </div>
+    </div>
+</body>
+</html>
+
